@@ -1,5 +1,47 @@
 # Analysis & Findings
 
+## Satisfaction by Customer Profile
+
+### **By Customer Type**
+
+```sql
+SELECT  `Customer Type`,
+        COUNT(*) AS total_passengers,
+        ROUND(SUM(CASE WHEN satisfaction = 'Satisfied' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS satisfied_pct
+        ROUND(SUM(CASE WHEN satisfaction = 'Dissatisfied' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS dissatisfied_pct
+FROM invistico_airline_analysis
+GROUP BY `Customer Type`
+ORDER BY satisfied_pct DESC;
+```
+
+### **By Type of Travel**
+
+```sql
+SELECT  `Type of Travel`,
+        COUNT(*) AS total_passengers,
+        ROUND(SUM(CASE WHEN satisfaction = 'Satisfied' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS satisfied_pct
+        ROUND(SUM(CASE WHEN satisfaction = 'Dissatisfied' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS dissatisfied_pct
+FROM invistico_airline_analysis
+GROUP BY `Type of Travel`
+ORDER BY satisfied_pct DESC;
+```
+
+### **By Class**
+
+```sql
+SELECT  Class,
+        COUNT(*) AS total_passengers,
+        ROUND(SUM(CASE WHEN satisfaction = 'Satisfied' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS satisfied_pct
+        ROUND(SUM(CASE WHEN satisfaction = 'Dissatisfied' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS dissatisfied_pct
+FROM invistico_airline_analysis
+GROUP BY Class
+ORDER BY satisfied_pct DESC;
+```
+
+
+
+
+
 # Data Cleaning
 
 ## Raw Dataset
