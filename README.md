@@ -46,6 +46,53 @@ The dataset was obtained from Kaggle.
 
 ## Analysis & Findings
 
+### Satisfaction by Customer Profile
+
+#### **By Customer Type**
+
+61.63% of loyal customers are satisfied with Invistico Airline's 
+services. However, nearly 3 out of 4 disloyal passengers have a 
+negative experience with the airline with a dissatisfaction rate 
+of 76.03%, which makes it very difficult for the airline to 
+convert them into loyal customers.
+
+![customer type](images/customer_type_satisfied.png)
+
+#### **By Travel Type**
+
+Business travellers are mostly satisfied at **58.37%** while 
+personal travellers are mostly dissatisfied at **53.39%**. 
+This suggests the airline is better at serving business travellers 
+than leisure ones.
+
+![type of travel](images/type_of_travel_satisfied.png)
+
+#### **By Class**
+
+Business class has the highest satisfaction rate at **70.94%**. 
+Eco Plus and Eco class tell a different story with dissatisfaction 
+rates of **57.29%** and **60.60%** respectively. This also aligns 
+with the travel type finding where business travellers who mostly 
+fly in Business class are better served, while personal travellers 
+who mostly fly in Eco class are left with a poorer experience.
+
+![class](images/class_satisfied.png)
+
+### Service Rating Analysis
+
+Overall, no service scored above **4.0** out of 5, which means 
+no single service is truly excelling. Cleanliness and Baggage 
+Handling are the highest rated services at **3.71** and **3.70** 
+respectively, but still not impressive enough.
+
+On the other end, Seat Comfort is the lowest rated service at 
+**2.84**, followed by Food and Drink at **2.85** and Gate Location 
+at **2.99**. These are core aspects of the passenger experience 
+and their low ratings are likely one of the reasons behind the 
+high dissatisfaction rate.
+
+![service rank](images/service_rank.png)
+
 ## Recommendations
 
 ## Data Cleaning
