@@ -173,26 +173,26 @@ Based on the analysis, here are the key recommendations for
 Invistico Airline:
 
 - **Prioritise Seat Comfort, Food and Drink and Inflight 
-  Entertainment** -- These three services consistently ranked 
+  Entertainment**: These three services consistently ranked 
   at the bottom across both disloyal dissatisfied passengers 
   and Eco class dissatisfied passengers. Improving these areas 
   would have the biggest impact on overall satisfaction since 
   they affect the largest groups of unhappy passengers.
 
-- **Focus on converting disloyal customers** -- Nearly 3 out 
+- **Focus on converting disloyal customers**: Nearly 3 out 
   of 4 disloyal passengers leave dissatisfied. Since these are 
   first time or non-member passengers, a poor experience means 
   they are unlikely to return. Improving the overall experience 
   for this group is key to growing the airline's loyal customer 
   base.
 
-- **Improve Eco class experience** -- With **58,309** passengers 
+- **Improve Eco class experience**: With **58,309** passengers 
   and a dissatisfaction rate of **60.60%**, Eco class represents 
   the biggest opportunity for improvement. Better seat comfort, 
   food quality and inflight entertainment in economy would 
   directly address the majority of dissatisfied passengers.
 
-- **Review flight schedule options** -- Time Convenient is the 
+- **Review flight schedule options**: Time Convenient is the 
   lowest rated service among disloyal dissatisfied passengers at 
   **2.28**. This suggests passengers are unhappy with the available 
   departure and arrival times. Offering more flexible flight 
