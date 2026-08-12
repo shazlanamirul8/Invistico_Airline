@@ -38,9 +38,130 @@ GROUP BY Class
 ORDER BY satisfied_pct DESC;
 ```
 
+### Service Rating Analysis
 
+```sql
+WITH service_rating AS(
+        SELECT `Seat Comfort` AS service, ROUND(AVG(`Seat Comfort`), 2) AS avg_rating FROM invistico_airline_analysis
+        UNION ALL
+        SELECT `Departure/Arrival time convenient`, ROUND(AVG(`Departure/Arrival time convenient`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Food and Drink', ROUND(AVG(`Food and drink`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Gate Location', ROUND(AVG(`Gate location`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Inflight Wifi', ROUND(AVG(`Inflight wifi service`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Inflight Entertainment', ROUND(AVG(`Inflight entertainment`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Online Support', ROUND(AVG(`Online support`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Ease of Online Booking', ROUND(AVG(`Ease of Online booking`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Onboard Service', ROUND(AVG(`On-board service`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Leg Room', ROUND(AVG(`Leg room service`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Baggage Handling', ROUND(AVG(`Baggage handling`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Checkin Service', ROUND(AVG(`Checkin service`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Cleanliness', ROUND(AVG(`Cleanliness`), 2) FROM invistico_airline_analysis
+        UNION ALL
+        SELECT 'Online Boarding', ROUND(AVG(`Online boarding`), 2) FROM invistico_airline_analysis
+)
+SELECT  service, avg_rating,
+        RANK() OVER(ORDER BY avg_rating) AS ranking
+FROM invistico_airline_analysis
+ORDER BY ranking;
+```
 
+### Deep Dive: Disloyal Customer Dissatisfaction
 
+```sql
+WITH service_ratings AS (
+    SELECT 'Seat Comfort' AS service, ROUND(AVG(`Seat comfort`), 2) AS avg_rating FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Time Convenient', ROUND(AVG(`Departure/Arrival time convenient`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Food and Drink', ROUND(AVG(`Food and drink`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Gate Location', ROUND(AVG(`Gate location`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Inflight Wifi', ROUND(AVG(`Inflight wifi service`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Inflight Entertainment', ROUND(AVG(`Inflight entertainment`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Online Support', ROUND(AVG(`Online support`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Ease of Online Booking', ROUND(AVG(`Ease of Online booking`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Onboard Service', ROUND(AVG(`On-board service`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Leg Room', ROUND(AVG(`Leg room service`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Baggage Handling', ROUND(AVG(`Baggage handling`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Checkin Service', ROUND(AVG(`Checkin service`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Cleanliness', ROUND(AVG(`Cleanliness`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Online Boarding', ROUND(AVG(`Online boarding`), 2) FROM invistico_airline_analysis WHERE `Customer Type` = 'Disloyal Customer' AND satisfaction = 'Dissatisfied'
+)
+SELECT service, avg_rating,
+       RANK() OVER(ORDER BY avg_rating DESC) AS ranking
+FROM service_ratings
+ORDER BY ranking;
+```
+
+### Deep Dive: Eco Class Dissatisfaction
+
+```sql
+WITH service_ratings AS (
+    SELECT 'Seat Comfort' AS service, ROUND(AVG(`Seat comfort`), 2) AS avg_rating FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Time Convenient', ROUND(AVG(`Departure/Arrival time convenient`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Food and Drink', ROUND(AVG(`Food and drink`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Gate Location', ROUND(AVG(`Gate location`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Inflight Wifi', ROUND(AVG(`Inflight wifi service`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Inflight Entertainment', ROUND(AVG(`Inflight entertainment`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Online Support', ROUND(AVG(`Online support`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Ease of Online Booking', ROUND(AVG(`Ease of Online booking`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Onboard Service', ROUND(AVG(`On-board service`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Leg Room', ROUND(AVG(`Leg room service`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Baggage Handling', ROUND(AVG(`Baggage handling`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Checkin Service', ROUND(AVG(`Checkin service`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Cleanliness', ROUND(AVG(`Cleanliness`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+    UNION ALL
+    SELECT 'Online Boarding', ROUND(AVG(`Online boarding`), 2) FROM invistico_airline_analysis WHERE Class = 'Eco' AND satisfaction = 'Dissatisfied'
+)
+SELECT service, avg_rating,
+       RANK() OVER(ORDER BY avg_rating DESC) AS ranking
+FROM service_ratings
+ORDER BY ranking;
+```
+
+### Delay Analysis
+
+```sql
+SELECT  satisfaction,
+		ROUND(AVG(`Departure Delay in Minutes`), 2) AS avg_departure_delay,
+        ROUND(AVG(`Arrival Delay in Minutes`), 2) AS avg_arrival_delay
+FROM invistico_airline_analysis
+GROUP BY satisfaction;
+```
+---
 
 # Data Cleaning
 
