@@ -76,6 +76,9 @@ FROM invistico_airline_analysis
 ORDER BY ranking;
 ```
 
+I used UNION ALL to convert the service rating columns into rows 
+so it is easier to compare and rank all services in one result.
+
 ### Deep Dive: Disloyal Customer Dissatisfaction
 
 ```sql
