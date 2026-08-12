@@ -1,5 +1,7 @@
 # Invistico_Airline
-Using MySQL to analyze Invistico Airline passenger satisfaction data,  exploring service ratings such as food and drink, gate location,  and inflight entertainment to uncover what drives customer satisfaction.
+Using MySQL to analyze Invistico Airline passenger satisfaction data 
+to find out what makes passengers satisfied or dissatisfied, covering 
+service ratings, customer types and flight classes.
 
 ## Executive Summary
 
