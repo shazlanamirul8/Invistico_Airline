@@ -2,7 +2,24 @@
 Using MySQL to analyze Invistico Airline passenger satisfaction data,  exploring service ratings such as food and drink, gate location,  and inflight entertainment to uncover what drives customer satisfaction.
 
 ## Executive Summary
-*To be updated after analysis is complete.*
+
+This analysis explores passenger satisfaction data from Invistico 
+Airline, covering **129,880** passengers across different customer 
+types, travel types, flight classes and service ratings.
+
+Overall, **54.73%** of passengers are satisfied while **45.27%** 
+are dissatisfied. The gap is narrow enough to be a serious concern 
+for the airline. Loyal customers and business travellers tend to 
+be more satisfied, while disloyal customers and personal travellers 
+in Eco class are the most unhappy groups.
+
+The analysis found that Seat Comfort, Food and Drink and Inflight 
+Entertainment are consistently the lowest rated services across 
+all groups. Disloyal passengers have a dissatisfaction rate of 
+**76.03%**, making them the most critical group to address if the 
+airline wants to grow its loyal customer base. Eco class passengers 
+also show a high dissatisfaction rate of **60.60%** despite being 
+the second largest passenger group in the dataset.
 
 ## Dataset Overview
 
@@ -93,7 +110,87 @@ high dissatisfaction rate.
 
 ![service rank](images/service_rank.png)
 
+### Deep Dive: Disloyal Customer Dissatisfaction
+
+Looking specifically at disloyal dissatisfied customers, the ratings 
+are noticeably lower compared to the overall average. Here is the 
+comparison:
+
+- Time Convenient: **2.28** vs **2.99** overall
+- Food and Drink: **2.39** vs **2.85** overall
+- Seat Comfort: **2.39** vs **2.84** overall
+- Inflight Entertainment: **2.42** vs **3.38** overall
+
+These four services are the biggest pain points for disloyal 
+passengers. Inflight Entertainment shows the biggest drop, suggesting 
+that disloyal dissatisfied passengers are particularly unhappy with 
+the in-flight experience compared to the average passenger. These 
+are likely the key drivers behind the **76.03%** dissatisfaction 
+rate in this group.
+
+![service rank diss](images/service_rank_diss.png)
+
+### Deep Dive: Eco Class Dissatisfaction
+
+Looking at Eco class dissatisfied passengers, Seat Comfort is the 
+lowest rated service at **2.49**, followed by Inflight Entertainment 
+at **2.54** and Food and Drink at **2.58**. 
+
+Notably, these three services also appeared at the bottom for 
+disloyal dissatisfied passengers. This consistency across both 
+groups suggests that Seat Comfort, Inflight Entertainment and 
+Food and Drink are the most critical areas for the airline to 
+address.
+
+![service rank eco](images/service_rank_eco.png)
+
+### Delay Analysis
+
+Dissatisfied passengers experienced a higher average delay compared 
+to satisfied ones. Departure delay averaged **17.81 minutes** for 
+dissatisfied passengers versus **12.15 minutes** for satisfied ones. 
+Similarly, arrival delay averaged **18.45 minutes** versus **12.23 
+minutes**.
+
+While the gap exists, the difference of around 5 to 6 minutes 
+suggests that delay alone is not the main driver of dissatisfaction. 
+The low service ratings we saw earlier likely play a bigger role 
+in the overall passenger experience.
+
+![delay analysis](images/delay_analysis.png)
+
 ## Recommendations
+
+Based on the analysis, here are the key recommendations for 
+Invistico Airline:
+
+- **Prioritise Seat Comfort, Food and Drink and Inflight 
+  Entertainment** -- These three services consistently ranked 
+  at the bottom across both disloyal dissatisfied passengers 
+  and Eco class dissatisfied passengers. Improving these areas 
+  would have the biggest impact on overall satisfaction since 
+  they affect the largest groups of unhappy passengers.
+
+- **Focus on converting disloyal customers** -- Nearly 3 out 
+  of 4 disloyal passengers leave dissatisfied. Since these are 
+  first time or non-member passengers, a poor experience means 
+  they are unlikely to return. Improving the overall experience 
+  for this group is key to growing the airline's loyal customer 
+  base.
+
+- **Improve Eco class experience** -- With **58,309** passengers 
+  and a dissatisfaction rate of **60.60%**, Eco class represents 
+  the biggest opportunity for improvement. Better seat comfort, 
+  food quality and inflight entertainment in economy would 
+  directly address the majority of dissatisfied passengers.
+
+- **Review flight schedule options** -- Time Convenient is the 
+  lowest rated service among disloyal dissatisfied passengers at 
+  **2.28**. This suggests passengers are unhappy with the available 
+  departure and arrival times. Offering more flexible flight 
+  schedules could help improve satisfaction for this group.
+
+---
 
 ## Data Cleaning
 Before doing the analysis, I performed data cleaning to ensure the 
