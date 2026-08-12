@@ -130,6 +130,12 @@ the in-flight experience compared to the average passenger. These
 are likely the key drivers behind the **76.03%** dissatisfaction 
 rate in this group.
 
+Interestingly, Gate Location which ranks among the lowest overall 
+at **2.99**, is not a major concern for this group specifically. 
+This suggests that the dissatisfaction among disloyal passengers 
+is driven by specific in-flight experience factors rather than 
+ground services like gate location.
+
 ![service rank diss](images/service_rank_diss.png)
 
 ### Deep Dive: Eco Class Dissatisfaction
